@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --font-display: "Barlow Condensed"; --font-body: "Inter"; }
+
+html, body { margin: 0; padding: 0; }
+body { @apply bg-bg text-ink font-sans antialiased; }
+
+@layer components {
+  /* superficie base reutilizable */
+  .card { @apply bg-panel border border-line rounded-card p-4 shadow-card; }
+  .card-head { @apply flex items-center justify-between gap-2 mb-3; }
+  .card-head h3 { @apply flex items-center gap-2 font-display text-lg font-semibold tracking-wide; }
+  .subhead { @apply flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted mb-2; }
+
+  /* chips / badges */
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold; }
+  .chip-green { @apply bg-green/15 text-green; }
+  .chip-gold  { @apply bg-gold/15 text-gold; }
+  .chip-blue  { @apply bg-blue/15 text-blue; }
+  .chip-red   { @apply bg-red/15 text-red; }
+  .chip-muted { @apply bg-white/5 text-muted; }
+  .mock-tag   { @apply inline-flex items-center gap-1 rounded-md bg-gold/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold; }
+
+  /* botones */
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition; }
+  .btn-gold { @apply bg-gold text-bg hover:brightness-110; }
+  .btn-ghost { @apply border border-line text-ink hover:bg-white/5; }
+
+  /* tabs */
+  .tab { @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-t-lg px-3.5 py-2.5 text-sm font-semibold text-muted border-b-2 border-transparent transition; }
+  .tab-active { @apply text-ink border-green; }
+}
