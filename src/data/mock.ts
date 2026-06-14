@@ -122,7 +122,9 @@ function buildMatches() {
         date: MD_DATE[md], time: MD_TIME[idx % 3],
         venue: STADIUMS[(gi + idx) % STADIUMS.length],
         matchday: md, stage: "group",
-        source: "Apify Actor Mock",
+        venue: STADIUMS[(gi + idx) % STADIUMS.length],
+        matchday: md, stage: "group",
+        });
         lastUpdated: "2026-06-13T12:00:00Z",
       });
     });
