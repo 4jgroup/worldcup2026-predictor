@@ -60,7 +60,7 @@ function predictMatch(teamA, teamB, ctxA = { rosterScore: 1, disciplineScore: 1 
   const { lambdaA, lambdaB, strengthA, strengthB } = calculateExpectedGoals(teamA, teamB, ctxA, ctxB);
   const MAX = 6;
   let pWin = 0, pDraw = 0, pLoss = 0, total = 0;
-  const scorelines = [];
+  const scorelines: { score: string; prob: number }[] = [];
   for (let i = 0; i <= MAX; i++) {
     for (let j = 0; j <= MAX; j++) {
       const p = poissonProbability(lambdaA, i) * poissonProbability(lambdaB, j);
