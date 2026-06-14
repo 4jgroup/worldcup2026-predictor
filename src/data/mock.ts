@@ -115,14 +115,21 @@ function buildMatches() {
       if (matchId === LIVE_MATCH_ID) {
         homeScore = 1; awayScore = 0; status = "live";
       }
-      out.push({
-        matchId, group: g,
-        homeTeamId: f[0], awayTeamId: f[1],
-        homeScore, awayScore, status,
-        date: MD_DATE[md], time: MD_TIME[idx % 3],
-        venue: STADIUMS[(gi + idx) % STADIUMS.length], 
-        matchday: md, stage: "group",
-      });
+     const [hs, as] = seededScore(matchId, 0.12);
+      homeScore = hs; awayScore = as; status = "finished";
+    }
+    if (matchId === LIVE_MATCH_ID) {
+      homeScore = 1; awayScore = 0; status = "live";
+    }
+    out.push({
+      matchId, group: g,
+      homeTeamId: f[0], awayTeamId: f[1],
+      homeScore, awayScore, status,
+      date: MD_DATE[md], time: MD_TIME[idx % 3],
+      venue: STADIUMS[(gi + idx) % STADIUMS.length],
+      matchday: md, stage: "group",
+    });
+  }
   return out;
 }
 const MATCHES = buildMatches();
