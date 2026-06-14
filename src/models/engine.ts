@@ -170,7 +170,7 @@ function simulateTournament(matches, N = 1000) {
   const champ = {}, finalist = {}, semi = {};
   TEAMS.forEach((t) => { champ[t.teamId] = 0; finalist[t.teamId] = 0; semi[t.teamId] = 0; });
   for (let n = 0; n < N; n++) {
-    const thirds = [], qualified = [];
+    const qualified: string[] = [];
     GROUP_ORDER.forEach((g) => {
       const ids = getGroupTeams(g).map((t) => t.teamId);
       const rows = {}; ids.forEach((id) => (rows[id] = emptyRow(id)));
