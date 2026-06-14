@@ -124,6 +124,7 @@ function buildMatches() {
       matchday: md, stage: "group",
     });
    }
+   });                  
   return out;
 }
 const MATCHES = buildMatches();
