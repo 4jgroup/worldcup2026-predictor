@@ -101,8 +101,8 @@ function applyResult(rows, home, away, hs, as) {
   rh.dg = rh.gf - rh.gc; ra.dg = ra.gf - ra.gc;
   if (hs > as) rh.pts += 3; else if (hs < as) ra.pts += 3; else { rh.pts++; ra.pts++; }
 }
-function rankRows(rows) {
-  return Object.values(rows).sort(
+function rankRows(rows: any) {
+  return (Object.values(rows) as any[]).sort(
     (a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf || (Math.random() - 0.5)
   );
 }
