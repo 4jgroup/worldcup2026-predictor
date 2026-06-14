@@ -275,7 +275,7 @@ function getPlayerDisciplineStatuses(teamId, cards, matchStage) {
 function calculateDisciplinaryImpact(teamId, playerDisciplineStatuses) {
   // Devuelve disciplineScore en 0..1 (1 = sin impacto) + detalle.
   let penalty = 0;
-  const suspended = [], atRisk = [];
+  const suspended: any[] = [], atRisk: any[] = [];
   playerDisciplineStatuses.forEach((s) => {
     const impact = PLAYER_MAP[s.playerId]?.baseImpact || 0.5;
     if (s.isSuspended) { penalty += 0.14 + impact * 0.16; suspended.push(s); }
@@ -477,7 +477,7 @@ function generateRosterAlerts(matchId, matches) {
   const m = MATCH_MAP[matchId];
   if (!m) return [];
   const recalc = recalculatePredictionAfterRosterUpdate(matchId, matches);
-  const alerts = [];
+  const alerts: any[] = [];
   [["home", m.homeTeamId, recalc.ctxA], ["away", m.awayTeamId, recalc.ctxB]].forEach(([side, teamId, ctx]) => {
     const critical = detectCriticalAbsences(teamId, ctx.statuses);
     critical.forEach((s) => {
@@ -503,7 +503,7 @@ function generateDisciplinaryAlerts(matchId, matches) {
   const m = MATCH_MAP[matchId];
   if (!m) return [];
   const recalc = recalculatePredictionAfterSuspension(matchId, matches);
-  const alerts = [];
+  const alerts: any[] = [];
   [["home", m.homeTeamId, recalc.ctxA], ["away", m.awayTeamId, recalc.ctxB]].forEach(([side, teamId, ctx]) => {
     ctx.suspended.forEach((s) => {
       alerts.push({
