@@ -477,6 +477,7 @@ function generateRosterAlerts(matchId, matches) {
   const m = MATCH_MAP[matchId];
   if (!m) return [];
   const recalc = recalculatePredictionAfterRosterUpdate(matchId, matches);
+   if (!recalc) return [];
   const alerts: any[] = [];
   [["home", m.homeTeamId, recalc.ctxA], ["away", m.awayTeamId, recalc.ctxB]].forEach(([side, teamId, ctx]) => {
     const critical = detectCriticalAbsences(teamId, ctx.statuses);
@@ -503,6 +504,7 @@ function generateDisciplinaryAlerts(matchId, matches) {
   const m = MATCH_MAP[matchId];
   if (!m) return [];
   const recalc = recalculatePredictionAfterSuspension(matchId, matches);
+   if (!recalc) return [];
   const alerts: any[] = [];
   [["home", m.homeTeamId, recalc.ctxA], ["away", m.awayTeamId, recalc.ctxB]].forEach(([side, teamId, ctx]) => {
     ctx.suspended.forEach((s) => {
