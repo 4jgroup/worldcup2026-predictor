@@ -250,7 +250,7 @@ function getSuspensionMatchesRemaining(playerId, cards, matchStage) {
 }
 function getPlayerDisciplineStatuses(teamId, cards, matchStage) {
   // Construye playerDisciplineStatus por jugador con tarjetas en el equipo.
-  const ids = [...new Set(cards.filter((c) => c.teamId === teamId).map((c) => c.playerId))];
+  const ids = [...new Set<string>(cards.filter((c) => c.teamId === teamId).map((c) => c.playerId))];
   return ids.map((pid) => {
     const p = PLAYER_MAP[pid] || { playerName: pid, position: "?" };
     const yellows = calculateYellowCardCount(pid, cards, matchStage);
