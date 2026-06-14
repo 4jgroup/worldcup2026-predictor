@@ -2,6 +2,7 @@
    En produccion estos vendrian de Apify -> Supabase (ver src/lib). */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { hashStr, mulberry32, seededScore, clamp } from "@/utils";
+import type { Match } from '@/types';
 
 const T = (teamId, name, group, fifaRanking, eloRating, recentForm, gf, ga, inj, fat, home) => ({
   teamId, name, group, fifaRanking, eloRating,
