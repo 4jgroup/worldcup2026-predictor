@@ -160,7 +160,7 @@ function buildRoster(teamId) {
 }
 const ROSTERS = FEATURED.reduce((m, id) => ((m[id] = buildRoster(id)), m), {});
 const PLAYER_MAP = {};
-Object.values(ROSTERS).forEach((arr) => arr.forEach((p) => (PLAYER_MAP[p.playerId] = p)));
+Object.values(ROSTERS).forEach((arr: any[]) => arr.forEach((p: any) => (PLAYER_MAP[p.playerId] = p)));
 
 /* STATUS_OVERRIDES: lesiones / dudas / no convocados (InjuryNewsActor mock).
    status: available | doubtful | injured | unavailable
