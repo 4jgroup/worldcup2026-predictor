@@ -94,7 +94,7 @@ const PLAYED_MD = { A:[1,2], B:[1,2], C:[1,2], D:[1,2], E:[1], F:[1], G:[1], H:[
 const LIVE_MATCH_ID = "I1";
 
 function buildMatches() {
-  const out = [];
+  const out: Match[] = [];
   GROUP_ORDER.forEach((g, gi) => {
     const ids = TEAMS.filter((t) => t.group === g).map((t) => t.teamId);
     const [a, b, c, d] = ids;
