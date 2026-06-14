@@ -56,7 +56,7 @@ function poissonProbability(lambda, k) {
   const f = k < FACT.length ? FACT[k] : FACT[FACT.length - 1] * Math.pow(k, k - FACT.length + 1);
   return (Math.exp(-lambda) * Math.pow(lambda, k)) / f;
 }
-function predictMatch(teamA, teamB, ctxA, ctxB) {
+ffunction predictMatch(teamA, teamB, ctxA = { rosterScore: 1, disciplineScore: 1 }, ctxB = { rosterScore: 1, disciplineScore: 1 }) {
   const { lambdaA, lambdaB, strengthA, strengthB } = calculateExpectedGoals(teamA, teamB, ctxA, ctxB);
   const MAX = 6;
   let pWin = 0, pDraw = 0, pLoss = 0, total = 0;
