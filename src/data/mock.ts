@@ -123,7 +123,6 @@ function buildMatches() {
       venue: STADIUMS[(gi + idx) % STADIUMS.length],
       matchday: md, stage: "group",
     });
-  }
   return out;
 }
 const MATCHES = buildMatches();
