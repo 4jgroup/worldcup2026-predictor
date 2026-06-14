@@ -43,7 +43,7 @@ function calculateTeamStrength(team, ctx) {
   );
 }
 
-function calculateExpectedGoals(teamA, teamB, ctxA, ctxB) {
+function calculateExpectedGoals(teamA, teamB, ctxA = { rosterScore: 1, disciplineScore: 1 }, ctxB = { rosterScore: 1, disciplineScore: 1 }) {
   const sA = calculateTeamStrength(teamA, ctxA);
   const sB = calculateTeamStrength(teamB, ctxB);
   const AVG = 1.35;
