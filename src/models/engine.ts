@@ -194,7 +194,7 @@ function simulateTournament(matches, N = 1000) {
     while (alive.length > 1) {
       if (alive.length === 4) alive.forEach((id) => semi[id]++);
       if (alive.length === 2) alive.forEach((id) => finalist[id]++);
-      const next = [];
+      const next: any[] = [];
       for (let i = 0; i < alive.length; i += 2) next.push(playKO(alive[i], alive[i + 1]));
       alive = next;
     }
