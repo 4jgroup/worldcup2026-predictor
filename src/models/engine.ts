@@ -22,7 +22,7 @@ function calculateDefenseScore(goalsAgainstLast5) { return clamp(1 - goalsAgains
 /* Fuerza global (0..1) con los pesos EXACTOS de la V2.
    ctx opcional = { rosterScore, disciplineScore } en 0..1 (1 = sin impacto).
    Permite recalcular comparando baseline (sin ctx) vs actualizado. */
-function calculateTeamStrength(team, ctx) {
+function calculateTeamStrength(team, ctx = { rosterScore: 1, disciplineScore: 1 }) {
   const normElo = normalizeRating(team.eloRating, 1600, 2150);
   const normFifa = clamp(1 - (team.fifaRanking - 1) / (80 - 1), 0, 1);
   const form = calculateRecentFormScore(team.recentForm);
