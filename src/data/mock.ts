@@ -107,7 +107,7 @@ function buildMatches() {
       const matchId = `${g}${idx + 1}`;
       const md = f[2];
       const played = PLAYED_MD[g].includes(md);
-      let homeScore = null, awayScore = null, status = "scheduled";
+      let homeScore: number | null = null, awayScore: number | null = null, status: string = "scheduled";
       if (played) {
         const [hs, as] = seededScore(matchId, 0.12);
         homeScore = hs; awayScore = as; status = "finished";
