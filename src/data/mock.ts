@@ -109,18 +109,12 @@ function buildMatches() {
       const played = PLAYED_MD[g].includes(md);
       let homeScore: number | null = null, awayScore: number | null = null, status: MatchStatus = "scheduled";
       if (played) {
-        const [hs, as] = seededScore(matchId, 0.12);
-        homeScore = hs; awayScore = as; status = "finished";
-      }
-      if (matchId === LIVE_MATCH_ID) {
-        homeScore = 1; awayScore = 0; status = "live";
-      }
-     const [hs, as] = seededScore(matchId, 0.12);
+      const [hs, as] = seededScore(matchId, 0.12);
       homeScore = hs; awayScore = as; status = "finished";
-    }
-    if (matchId === LIVE_MATCH_ID) {
+     }
+     if (matchId === LIVE_MATCH_ID) {
       homeScore = 1; awayScore = 0; status = "live";
-    }
+     }
     out.push({
       matchId, group: g,
       homeTeamId: f[0], awayTeamId: f[1],
