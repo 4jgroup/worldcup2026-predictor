@@ -120,9 +120,7 @@ function buildMatches() {
         homeTeamId: f[0], awayTeamId: f[1],
         homeScore, awayScore, status,
         date: MD_DATE[md], time: MD_TIME[idx % 3],
-        venue: STADIUMS[(gi + idx) % STADIUMS.length],
-        matchday: md, stage: "group",
-        venue: STADIUMS[(gi + idx) % STADIUMS.length],
+        venue: STADIUMS[(gi + idx) % STADIUMS.length], 
         matchday: md, stage: "group",
         });
         lastUpdated: "2026-06-13T12:00:00Z",
